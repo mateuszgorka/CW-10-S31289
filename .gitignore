@@ -461,4 +461,5 @@ Migrations/*ModelSnapshot.cs
 
 # User secrets (optional)
 secrets.json
+.idea/
 
