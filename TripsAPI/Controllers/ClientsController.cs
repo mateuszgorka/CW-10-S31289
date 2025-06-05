@@ -33,5 +33,5 @@ public class ClientsController : ControllerBase
         return NoContent();
     }
     
-    // zmiany 
+    // zmiany wazne
 }
