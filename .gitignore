@@ -404,3 +404,61 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Rider / IntelliJ IDEA
+.idea/
+*.sln.iml
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# VS Code
+.vscode/
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# DotCover
+.idea/.dotCover
+
+# Logs
+*.log
+
+# Database files
+*.mdf
+*.ldf
+
+# Local environment
+.env
+.env.*
+
+# EF Core migrations snapshot (optional)
+Migrations/*ModelSnapshot.cs
+
+# JetBrains Rider cache
+.idea/.idea.*
+
+# Backup files
+*~
+*.bak
+
+# User secrets (optional)
+secrets.json
+
