@@ -23,10 +23,10 @@ public class ClientsController : ControllerBase
             .FirstOrDefaultAsync(c => c.IdClient == idClient);
 
         if (client == null)
-            return NotFound("Client not found.");
+            return NotFound("Klient nie zostal znaleziony");
 
         if (client.ClientTrips.Any())
-            return BadRequest("Client is registered for trips.");
+            return BadRequest("Klient jest zarejestrowany");
 
         _context.Clients.Remove(client);
         await _context.SaveChangesAsync();

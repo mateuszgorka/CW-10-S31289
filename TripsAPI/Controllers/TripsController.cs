@@ -56,14 +56,14 @@ public class TripsController : ControllerBase
         var existing = await _context.Clients
             .FirstOrDefaultAsync(c => c.Pesel == dto.Pesel);
         if (existing != null)
-            return BadRequest("Client with PESEL exists.");
+            return BadRequest("Klient z takim PESEL-em istnieje");
 
         var trip = await _context.Trips
             .Include(t => t.ClientTrips)
             .FirstOrDefaultAsync(t => t.IdTrip == idTrip);
 
         if (trip == null || trip.DateFrom <= DateTime.Now)
-            return BadRequest("Trip does not exist or already started.");
+            return BadRequest("Wycieczka nie istnieje lub juz sie rozpoczela");
 
         var client = new Models.Client
         {
@@ -85,6 +85,6 @@ public class TripsController : ControllerBase
         });
 
         await _context.SaveChangesAsync();
-        return Ok("Client assigned.");
+        return Ok("Klient przypisany");
     }
 }

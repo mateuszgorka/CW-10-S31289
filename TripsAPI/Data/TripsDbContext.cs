@@ -14,13 +14,15 @@ public class TripsDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
-    // Mapowanie nazw tabel
+    
+    
+    // -> mapping nazw tabel
     modelBuilder.Entity<Client>().ToTable("Client");
     modelBuilder.Entity<Trip>().ToTable("Trip");
     modelBuilder.Entity<ClientTrip>().ToTable("Client_Trip");
     modelBuilder.Entity<Country>().ToTable("Country");
 
-    // Relacja Trip ↔ Country przez tabelę pośrednią
+    // -> tu tworzymy relacje
     modelBuilder.Entity<Trip>()
         .HasMany(t => t.Countries)
         .WithMany(c => c.Trips)
@@ -39,7 +41,7 @@ public class TripsDbContext : DbContext
                 );
             });
 
-    // Klucz złożony ClientTrip
+    
     modelBuilder.Entity<ClientTrip>().HasKey(ct => new { ct.IdClient, ct.IdTrip });
 
     modelBuilder.Entity<ClientTrip>()
@@ -52,7 +54,7 @@ public class TripsDbContext : DbContext
         .WithMany(t => t.ClientTrips)
         .HasForeignKey(ct => ct.IdTrip);
 
-    // SEED danych głównych
+    // -> seedowanie danych
     modelBuilder.Entity<Client>().HasData(
         new Client
         {
@@ -119,8 +121,5 @@ public class TripsDbContext : DbContext
     modelBuilder.Ignore<DTOs.TripDto>();
 
     base.OnModelCreating(modelBuilder);
-}
-
-
-
+    } 
 }
