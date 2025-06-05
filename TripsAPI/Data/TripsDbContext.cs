@@ -27,6 +27,12 @@ public class TripsDbContext : DbContext
             .WithMany(t => t.ClientTrips)
             .HasForeignKey(ct => ct.IdTrip);
 
+        modelBuilder.Entity<Trip>()
+            .HasMany(t => t.Countries)
+            .WithMany(c => c.Trips)
+            .UsingEntity(j => j.ToTable("TripCountry")); 
+
         base.OnModelCreating(modelBuilder);
     }
+
 }

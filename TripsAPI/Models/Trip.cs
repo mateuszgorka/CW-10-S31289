@@ -1,7 +1,10 @@
-﻿namespace TripsAPI.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TripsAPI.Models;
 
 public class Trip
 {
+    [Key]
     public int IdTrip { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
